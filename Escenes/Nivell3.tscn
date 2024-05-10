@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Escenes/Nivell1.tscn" type="PackedScene" id=1]
+
+[node name="Nivell3" instance=ExtResource( 1 )]
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PoolIntArray( -524220, 11, 0, -524193, 13, 0, -458658, 13, 0, -458655, 4, 0, -458648, 4, 0, -393157, 8, 0, -393156, 8, 0, -393155, 8, 0, -393154, 8, 0, -393123, 13, 0, -327612, 11, 0, -327588, 13, 0, -262093, 8, 0, -262092, 8, 0, -262091, 8, 0, -262090, 8, 0, -262053, 13, 0, -196518, 13, 0, -130983, 13, 0, -15, 1, 0, -65492, 8, 0, -65491, 8, 0, -65490, 8, 0, -65471, 8, 0, -65470, 8, 0, -65469, 8, 0, -65468, 8, 0, -65448, 13, 0, 87, 13, 0, 65538, 1, 0, 65543, 3, 0, 65588, 8, 0, 65589, 8, 0, 65590, 8, 0, 196601, 1, 0, 131080, 3, 0, 131136, 8, 0, 131137, 8, 0, 131138, 8, 0, 131139, 8, 0, 131140, 8, 0, 131141, 8, 0, 131142, 8, 0, 131143, 8, 0, 131144, 8, 0, 131145, 8, 0, 131146, 8, 0, 131147, 8, 0, 131148, 8, 0, 131153, 8, 0, 131154, 8, 0, 131155, 8, 0, 131156, 8, 0, 131157, 8, 0, 131158, 8, 0, 131159, 8, 0, 196617, 3, 0, 196684, 8, 0, 196685, 8, 0, 196686, 8, 0, 196687, 8, 0, 262154, 3, 0, 262170, 4, 0, 262187, 4, 0, 393227, 4, 0, 458786, 4, 0 )
+
+[node name="esquelet" parent="." index="2"]
+position = Vector2( -135, 38 )
+
+[node name="esquelet2" parent="." index="3"]
+position = Vector2( 138, 10 )
+
+[node name="esquelet3" parent="." index="4"]
+position = Vector2( 919, 110 )
+
+[node name="esquelet4" parent="." index="5"]
+position = Vector2( 1480, 100 )
+
+[node name="esquelet5" parent="." index="6"]
+position = Vector2( 2184, 52 )
+
+[node name="esquelet6" parent="." index="7"]
+position = Vector2( 1949, -198 )
+
+[node name="esquelet7" parent="." index="8"]
+position = Vector2( 2735, 57 )
+
+[node name="Moneda" parent="." index="9"]
+position = Vector2( 3318, -245 )
+
+[node name="Label" parent="." index="10"]
+text = "NIVELL 3"

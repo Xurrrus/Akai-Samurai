@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Escenes/menuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Zenzai Itachi.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Resources/menu.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 79
+outline_color = Color( 0.0588235, 0.00784314, 0.00784314, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Menu" type="Sprite" parent="."]
+position = Vector2( 513, 301 )
+texture = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1026.0
+margin_bottom = 601.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 1026.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 300 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+margin_left = 344.0
+margin_top = 59.0
+margin_right = 681.0
+margin_bottom = 240.0
+custom_fonts/font = SubResource( 1 )
+text = "Akai Samurai"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 304.0
+margin_right = 1026.0
+margin_bottom = 604.0
+rect_min_size = Vector2( 0, 300 )
+alignment = 1
+
+[node name="Start" parent="VBoxContainer/VBoxContainer2" instance=ExtResource( 1 )]
+margin_top = 116.0
+margin_right = 1026.0
+margin_bottom = 136.0
+focus_neighbour_top = NodePath("../Exit")
+focus_neighbour_bottom = NodePath("../Options")
+text = "Start"
+marge_espasa_centre = 120
+
+[node name="Options" parent="VBoxContainer/VBoxContainer2" instance=ExtResource( 1 )]
+margin_right = 1026.0
+focus_neighbour_top = NodePath("../Start")
+focus_neighbour_bottom = NodePath("../Exit")
+text = "Options"
+marge_espasa_centre = 120
+
+[node name="Exit" parent="VBoxContainer/VBoxContainer2" instance=ExtResource( 1 )]
+margin_top = 164.0
+margin_right = 1026.0
+margin_bottom = 184.0
+focus_neighbour_top = NodePath("../Options")
+focus_neighbour_bottom = NodePath("../Start")
+text = "Exit"
+marge_espasa_centre = 120
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/Exit" to="." method="_on_Exit_pressed"]

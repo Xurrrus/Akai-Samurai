@@ -1,0 +1,199 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Esquelet.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Esquelet/Skeleton enemy.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=26]
+radius = 11.0
+height = 16.0
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonEnemy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 26 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "atacar"
+length = 1.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonEnemy:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 0.6, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+}, {
+"args": [  ],
+"method": "final_hit"
+}, {
+"args": [  ],
+"method": "caminar"
+} ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "caminar"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonEnemy:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "hit"
+length = 0.32
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonEnemy:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 52, 53, 54 ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonEnemy:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 39, 40, 41, 42 ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "morir"
+length = 1.25
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonEnemy:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 ]
+}
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 20.4375, 18.75 )
+
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 11.25, 15 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 9, 5 )
+
+[node name="esquelet" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="SkeletonEnemy" type="Sprite" parent="."]
+position = Vector2( 1.01015, -10.3401 )
+scale = Vector2( -1.14031, 1.22925 )
+texture = ExtResource( 2 )
+hframes = 13
+vframes = 5
+frame = 26
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, -10 )
+shape = SubResource( 26 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 27 )
+anims/atacar = SubResource( 28 )
+anims/caminar = SubResource( 29 )
+anims/hit = SubResource( 30 )
+anims/idle = SubResource( 31 )
+anims/morir = SubResource( 32 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -28, -34 )
+enabled = true
+
+[node name="detector_jug" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector_jug"]
+position = Vector2( -34, -10.75 )
+shape = SubResource( 33 )
+
+[node name="hit_jug" type="Area2D" parent="."]
+modulate = Color( 0.968627, 0.0705882, 0.0705882, 1 )
+self_modulate = Color( 0.929412, 0.0392157, 0.0392157, 1 )
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_jug"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -24.75, -15 )
+shape = SubResource( 34 )
+
+[node name="dany_enemic" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dany_enemic"]
+position = Vector2( 2, -36 )
+shape = SubResource( 35 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="detector_jug" to="." method="_on_detector_jug_body_entered"]
+[connection signal="body_entered" from="hit_jug" to="." method="_on_hit_jug_body_entered"]
+[connection signal="area_entered" from="dany_enemic" to="." method="_on_dany_enemic_area_entered"]
+[connection signal="area_exited" from="dany_enemic" to="." method="_on_dany_enemic_area_exited"]
+[connection signal="body_entered" from="dany_enemic" to="." method="_on_dany_enemic_body_entered"]
+[connection signal="body_exited" from="dany_enemic" to="." method="_on_dany_enemic_body_exited"]

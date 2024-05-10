@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/menuButton.gd" type="Script" id=1]
+[ext_resource path="res://Resources/espasa.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+
+[node name="TextureButton" type="TextureButton"]
+margin_top = 140.0
+margin_right = 1024.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 20 )
+focus_mode = 1
+script = ExtResource( 1 )
+text = "Text Button"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/mono_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Text Button[/center]"
+text = "Text Button"
+
+[node name="espasa_dreta" type="Sprite" parent="."]
+visible = false
+position = Vector2( 683.175, 278.526 )
+rotation = 4.71239
+scale = Vector2( 0.307736, 0.307736 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="espasa_esquerra" type="Sprite" parent="."]
+visible = false
+position = Vector2( 429.175, 279.526 )
+rotation = 1.5708
+scale = Vector2( 0.326196, 0.326196 )
+texture = ExtResource( 2 )
+
+[connection signal="focus_entered" from="." to="." method="_on_TextureButton_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_TextureButton_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_TextureButton_mouse_entered"]
